@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+    width:800px;
+    margin:0 auto;
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+}
+header{
+    height:150px;
+}
+div{
+    display: flex;
+    flex:1;
+}
+main{
+    flex:1;
+}
+nav{
+    width:150px;
+}
+aside{
+    width:150px;
+}
+
+footer{
+    height:150px;
+}
+
+@media screen and  (max-width:900px){
+    body, nav, aside{
+        width:100%;
+    }
+    div{
+        flex-direction:column;
+    }
+    main{
+        order:-1;
+    }
+}
+    </style>
+</head>
+<body>
+<header>header</header>
+<div>
+    <nav>left</nav>
+    <main>center</main>
+    <aside>right</aside>
+</div>
+<footer>footer</footer>
+</body>
+</html>
+
+<!-- 聖杯レイアウト(Holy Grail Layout)
+|     <header>      |
+<div>
+<nav><main><aside>
+</div>
+|     <footer>      |
+
+1. margin 0 -> body(eliminate margin around the body)
+2. display flex -> div (line elements in the div side by side)
+3. flex 1 -> main (expand the center element to the all rest space)
+4. adjust the width of the nav and the aside, and the height of the header and the footer
+5. configurate the min-height of the body 100vh which is the degree of the portion of the display
+6. flex 1 -> div (in that case the parent element has to have the flex)
+7. display flex, flex-direction column -> body (to line in column from side by side)
+------------------------------------------
+from this point to make fixed width
+8. set width deserve and margin 0 auto to the body
+--------------------------------------------
+from this point to make responsible design
+9. media query set '@media screen and  (max-width:900px){}' for the time when the display is less than 900px
+10. flex-direction column -> div
+11. expand the nav and the aside to the limit of the width
+12. order -1 to order with the most priority
+
+-->
